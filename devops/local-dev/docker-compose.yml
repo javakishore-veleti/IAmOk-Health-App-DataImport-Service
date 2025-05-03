@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: iamok-health-app-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: iamok
+      POSTGRES_PASSWORD: iamok123
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+       ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  redis:
+    image: redis:7-alpine
+    container_name: iamok-health-app-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  wiremock:
+    image: wiremock/wiremock:3.3.1
+    container_name: iamok-health-app-wiremock
+    ports:
+      - "8081:8080"
+    volumes:
+      - ../../local-dev/__files:/home/wiremock/__files
+      - ../../local-dev/mappings:/home/wiremock/mappings
+    command: ["--global-response-templating", "--verbose"]
+
+volumes:
+  pgdata:

@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ <parent>
+    <groupId>com.jk.iamok.health-app</groupId>
+    <artifactId>ingest-app-main</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>ingest-student</artifactId>
+  <name>ingest-student</name>
+  <description>Technology-agnostic module for student ingestion logic</description>
+
+  <dependencies>
+    <!-- Shared base classes and DTOs -->
+    <dependency>
+      <groupId>com.jk.iamok.health-app</groupId>
+      <artifactId>ingest-common</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <!-- Interfaces for student profile client, learning summary access, etc. -->
+  </dependencies>
+
+</project>

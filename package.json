@@ -1,0 +1,22 @@
+{
+    "name": "iamok-health-app-dataimport-service",
+    "version": "1.0.0",
+    "description": "Scripts to manage local development and observability tooling for IAmOk Health App Data Import Service.",
+    "scripts": {
+        "dev:setup-local-containers": "docker-compose -f devops/local-dev/docker-compose.yml up -d",
+        "dev:stop-local-containers": "docker-compose -f devops/local-dev/docker-compose.yml down",
+        "dev:reset-local-containers": "docker-compose -f devops/local-dev/docker-compose.yml down -v && docker-compose -f devops/local-dev/docker-compose.yml up -d",
+        "start-spring-boot-app": "mvn -f ingest-app-main/pom.xml -pl ingest-spring-batch-app spring-boot:run",
+        "build": "mvn -f ingest-app-main/pom.xml clean install -DskipTests",
+        "test": "mvn -f ingest-app-main/pom.xml test"
+    },
+    "keywords": [
+        "spring-boot",
+        "spring-batch",
+        "postgres",
+        "wiremock",
+        "data-ingestion",
+        "observability",
+        "kubernetes"
+    ]
+}

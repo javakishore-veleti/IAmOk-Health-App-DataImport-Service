@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+ <parent>
+    <groupId>com.jk.iamok.health-app</groupId>
+    <artifactId>ingest-app-main</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>ingest-teacher</artifactId>
+  <name>ingest-teacher</name>
+  <description>Technology-agnostic module for teacher ingestion logic</description>
+
+  <dependencies>
+    <!-- Reference common DTOs and base entities -->
+    <dependency>
+      <groupId>com.jk.iamok.health-app</groupId>
+      <artifactId>ingest-common</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <!-- Optional: interfaces for data access or external services -->
+    <!-- e.g., TeacherRepositoryPort, TeacherProfileClient -->
+
+    <!-- Use lombok and jackson from parent via dependencyManagement -->
+  </dependencies>
+
+</project>
