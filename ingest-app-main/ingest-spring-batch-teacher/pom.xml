@@ -29,10 +29,11 @@
       <version>${project.version}</version>
     </dependency>
 
-    <dependency>
-  <groupId>org.postgresql</groupId>
-  <artifactId>postgresql</artifactId>
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-batch</artifactId>
 </dependency>
+
   </dependencies>
 
 </project>
