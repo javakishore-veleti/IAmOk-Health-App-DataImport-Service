@@ -64,7 +64,6 @@ As part of academic research in **Observability in Distributed Systems**, this p
 - Tracks every batch job via `ingest_log_id`
 - Exposes APIs to trigger ingestion jobs asynchronously
 
----
 
 ## Dependent Services
 
