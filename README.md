@@ -5,7 +5,6 @@ Data import service for the IAmOK Health Status application that supports batch 
 
 This repository contains the data import service for the [IAmOK Health Status Reporting System](https://ieeexplore.ieee.org/document/9361238), designed to ingest and enrich teacher and student data from external sources such as local folders, AWS S3, GCS, or Azure Blob Storage. The service supports multiple ingestion technologies (e.g., Spring Batch, AWS Step Functions, Azure AKS), integrates with dependent services, and ensures full observability and DevOps automation.
 
----
 
 ## Inspiration
 
@@ -16,7 +15,6 @@ Publisher: IEEE
 [IEEE Xplore Article →](https://ieeexplore.ieee.org/document/9361238)  
 Authors: Zhe Wang, Zhu Liang Yu, Feng Tang
 
----
 
 ## Purpose of This Implementation
 
@@ -27,7 +25,6 @@ As part of academic research in **Observability in Distributed Systems**, this p
 - Auditability and traceability in asynchronous workflows
 - DevOps automation and real-world deployment patterns
 
----
 
 ## Observability Practices for Batch Ingest Applications
 
@@ -58,7 +55,6 @@ As part of academic research in **Observability in Distributed Systems**, this p
 
 > Note: This service focuses purely on data ingestion and enrichment. Business logic validation is handled elsewhere.
 
----
 
 ## Scope of This Service
 
@@ -81,7 +77,6 @@ These downstream microservices are mocked locally via WireMock:
 | StudentProfileService     | Maps student email to `student_id`     |
 | StudentLearningService    | Returns learning/course records        |
 
----
 
 ## Getting Started
 
@@ -109,7 +104,6 @@ Start the Spring Boot API server:
 npm run start-spring-boot-app
 ```
 
----
 
 ## Triggering Ingestion via REST API
 
@@ -141,7 +135,6 @@ npm run start-spring-boot-app
 3. Response includes `ingest_log_id`
 4. Logs, metrics, and audit entries are tagged with this ID
 
----
 
 ## Observability Features
 
@@ -156,7 +149,6 @@ npm run start-spring-boot-app
 
 > Sample dashboards and alert rules are available in `docs/observability/`
 
----
 
 ## Cloud Platform Support
 
@@ -166,7 +158,6 @@ npm run start-spring-boot-app
 | Azure   | Durable Functions / AKS| Azure Kubernetes       |
 | GCP     | Cloud Workflows        | GKE                    |
 
----
 
 ## License & Citation
 
