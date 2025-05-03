@@ -103,6 +103,26 @@ Start the Spring Boot API server:
 npm run start-spring-boot-app
 ```
 
+### Verifying Local Postgres Initialization
+
+To verify that your local PostgreSQL container has successfully created the `iam_ok_health_db` database, run the following command from your terminal:
+
+```bash
+docker exec -it iamok-health-app-postgres psql -U iamok -d postgres -c '\l'
+```
+
+This command:
+- Enters the running PostgreSQL container
+- Uses the psql client as user iamok
+- Connects to the default postgres database
+- Lists all available databases (\l)
+
+Expected Output:
+Look for a line that contains:
+
+```bash
+# iam_ok_health_db | iamok | UTF8 | ...
+```
 
 ## Triggering Ingestion via REST API
 

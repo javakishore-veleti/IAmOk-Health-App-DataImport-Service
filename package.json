@@ -3,10 +3,10 @@
     "version": "1.0.0",
     "description": "Scripts to manage local development and observability tooling for IAmOk Health App Data Import Service.",
     "scripts": {
-        "dev:setup-local-containers": "docker-compose -f devops/local-dev/docker-compose.yml up -d",
-        "dev:stop-local-containers": "docker-compose -f devops/local-dev/docker-compose.yml down",
-        "dev:reset-local-containers": "docker-compose -f devops/local-dev/docker-compose.yml down -v && docker-compose -f devops/local-dev/docker-compose.yml up -d",
-        "start-spring-boot-app": "mvn -f ingest-app-main/pom.xml -pl ingest-spring-batch-app spring-boot:run",
+        "dev:start-local-containers": "docker-compose --project-directory devops/local-dev -f devops/local-dev/docker-compose.yml up -d",
+        "dev:stop-local-containers": "docker-compose --project-directory devops/local-dev -f devops/local-dev/docker-compose.yml down -v",
+        "dev:reset-local-containers": "docker-compose --project-directory devops/local-dev -f devops/local-dev/docker-compose.yml down -v && docker-compose --project-directory devops/local-dev -f devops/local-dev/docker-compose.yml up -d",
+        "dev:start": "mvn -f ingest-app-main/pom.xml -pl ingest-spring-batch-app spring-boot:run",
         "build": "mvn -f ingest-app-main/pom.xml clean install -DskipTests",
         "test": "mvn -f ingest-app-main/pom.xml test"
     },
