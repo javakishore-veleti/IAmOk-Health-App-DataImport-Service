@@ -21,6 +21,12 @@
       <version>${project.version}</version>
     </dependency>
 
+    <dependency>
+  <groupId>org.springframework.cloud</groupId>
+  <artifactId>spring-cloud-starter-openfeign</artifactId>
+  <scope>provided</scope>
+</dependency>
+
     <!-- Interfaces for student profile client, learning summary access, etc. -->
   </dependencies>
 

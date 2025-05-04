@@ -7,8 +7,8 @@
 <parent>
   <groupId>org.springframework.boot</groupId>
   <artifactId>spring-boot-starter-parent</artifactId>
-  <version>3.4.5</version>
-  <relativePath/> <!-- lookup parent from repository -->
+  <version>3.2.5</version> <!-- compatible with Spring Cloud 2023.0.1 -->
+  <relativePath/>
 </parent>
 
   <groupId>com.jk.iamok.health-app</groupId>
@@ -65,6 +65,13 @@
       <artifactId>jakarta.persistence-api</artifactId>
       <version>3.1.0</version>
     </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-dependencies</artifactId>
+      <version>2023.0.1</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
     </dependencies>
   </dependencyManagement>
   <build>
@@ -92,6 +99,7 @@
   <artifactId>lombok</artifactId>
   <version>1.18.30</version> <!-- latest stable -->
 </dependency>
+
   </dependencies>
 
   

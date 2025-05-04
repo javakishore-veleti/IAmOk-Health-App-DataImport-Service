@@ -1,0 +1,20 @@
+{
+    "teacherId": "{{request.path.[2]}}",
+    "teachingHistory": [
+      {
+        "courseId": "C101",
+        "courseName": "Data Structures",
+        "courseStartYear": 2016,
+        "courseEndYear": 2016,
+        "teachingHours": 45
+      },
+      {
+        "courseId": "C102",
+        "courseName": "Algorithms",
+        "courseStartYear": 2017,
+        "courseEndYear": 2017,
+        "teachingHours": 40
+      }
+    ]
+  }
+  

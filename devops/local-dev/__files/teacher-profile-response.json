@@ -1,0 +1,9 @@
+{
+    "id": "T12345",
+    "firstName": "{{request.query.firstName}}",
+    "lastName": "{{request.query.lastName}}",
+    "email": "{{request.query.email}}",
+    "joiningDate": "2015-08-01",
+    "employmentStatus": "Active"
+  }
+  
