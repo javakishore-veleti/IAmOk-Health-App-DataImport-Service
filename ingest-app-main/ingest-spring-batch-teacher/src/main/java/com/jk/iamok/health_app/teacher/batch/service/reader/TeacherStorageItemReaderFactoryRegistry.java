@@ -1,5 +1,6 @@
 package com.jk.iamok.health_app.teacher.batch.service.reader;
 
+import com.jk.iamok.health_app.constants.StorageProviderType;
 import com.jk.iamok.health_app.teacher.batch.service.reader.impl.LocalFileTeacherItemReaderFactory;
 import com.jk.iamok.health_app.teacher.batch.service.reader.impl.S3TeacherItemReaderFactory;
 import com.jk.iamok.health_app.core.dto.TeachersIngestReqCtx;
@@ -20,14 +21,14 @@ public class TeacherStorageItemReaderFactoryRegistry {
             // add azureFactory, gcsFactory if needed
     ) {
         this.factoryMap = Map.of(
-                "local", localFactory,
-                "s3", s3Factory
+                StorageProviderType.LOCAL.name().toLowerCase(), localFactory,
+                StorageProviderType.AWS_S3.name(), s3Factory
                 // , "azure", azureFactory, "gcs", gcsFactory
         );
     }
 
     public ItemReader<TeacherCsvRow> getReader(TeachersIngestReqCtx ctx) {
-        String type = ctx.getTeachersIngestReq().getStorageProviderType().toLowerCase();
+        String type = ctx.getTeachersIngestReq().getStorageProviderType().name().toLowerCase();
         TeacherStorageItemReaderFactory factory = factoryMap.get(type);
         if (factory == null) {
             throw new IllegalArgumentException("Unsupported storageProviderType: " + type);

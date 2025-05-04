@@ -1,5 +1,6 @@
 package com.jk.iamok.health_app.core.dto;
 
+import com.jk.iamok.health_app.constants.StorageProviderType;
 import jakarta.validation.constraints.NotBlank;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -15,5 +16,5 @@ public class IngestReq {
 	private String fileUri;
 
 	@NotBlank
-	private String storageProviderType; // e.g., local, s3, gcs, azure
+	private StorageProviderType storageProviderType;
 }

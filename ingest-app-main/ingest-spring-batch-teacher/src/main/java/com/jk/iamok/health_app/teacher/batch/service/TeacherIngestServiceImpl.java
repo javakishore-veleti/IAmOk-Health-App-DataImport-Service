@@ -12,6 +12,7 @@ import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,6 +29,7 @@ public class TeacherIngestServiceImpl implements TeacherIngestService {
 		this.partitionedTeacherIngestJob = partitionedTeacherIngestJob;
 	}
 
+	@Async("taskExecutor")
 	@Override
 	public void ingestTeachers(TeachersIngestReq request, String ingestLogId) throws Exception {
 
@@ -37,7 +39,7 @@ public class TeacherIngestServiceImpl implements TeacherIngestService {
 		String contextJson = AppUtil.getObjectMapper().writeValueAsString(context);
 
 		JobParameters jobParameters = new JobParametersBuilder().addString("fileUri", request.getFileUri())
-				.addString("storageProviderType", request.getStorageProviderType())
+				.addString("storageProviderType", request.getStorageProviderType().name())
 				.addString("ingestLogId", ingestLogId).addLong("timestamp", System.currentTimeMillis())
 				.addString("teachersIngestReqCtx", contextJson)
 				.toJobParameters();
