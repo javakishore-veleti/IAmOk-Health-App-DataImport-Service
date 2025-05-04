@@ -1,4 +1,4 @@
-package com.jk.iamok.health_app.teacher.batch.service;
+package com.jk.iamok.health_app.teacher.batch.service.processor;
 
 import java.util.List;
 
@@ -15,19 +15,18 @@ import com.jk.iamok.health_app.domain_services.teacher.client.dto.TeacherTeachin
 import com.jk.iamok.health_app.teacher.batch.service.dto.TeacherCsvRow;
 
 @Component
-public class TeacherDataEnrichmentProcessor implements ItemProcessor<TeacherCsvRow, TeacherEnrichedInfo> {
+public class TeacherCsvRowProcessor implements ItemProcessor<TeacherCsvRow, TeacherEnrichedInfo> {
 
 	private final TeacherProfileServiceClient teacherProfileClient;
 	private final TeachingServiceClient teachingServiceClient;
 
-	public TeacherDataEnrichmentProcessor(TeacherProfileServiceClient profileClient,
-			TeachingServiceClient teachingClient) {
+	public TeacherCsvRowProcessor(TeacherProfileServiceClient profileClient, TeachingServiceClient teachingClient) {
 		this.teacherProfileClient = profileClient;
 		this.teachingServiceClient = teachingClient;
 	}
 
 	@Override
-	public TeacherEnrichedInfo process(TeacherCsvRow row) throws Exception {
+	public TeacherEnrichedInfo process(TeacherCsvRow row) {
 		TeacherProfile profile = teacherProfileClient.getTeacherProfile(row.getFirstName(), row.getLastName(),
 				row.getEmail());
 		TeacherTeachingHistory history = teachingServiceClient.getTeachingSummary(profile.getId());

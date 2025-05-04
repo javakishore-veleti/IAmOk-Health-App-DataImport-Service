@@ -30,7 +30,7 @@ public class TeacherIngestController {
 
 	@Operation(summary = "Start teacher batch ingestion job", description = "Triggers asynchronous batch job to ingest teacher data from the provided source")
 	@PostMapping("/batch-ingest")
-	public ResponseEntity<TeachersIngestResp> ingestTeacherData(@Valid @RequestBody TeachersIngestReq request) {
+	public ResponseEntity<TeachersIngestResp> ingestTeacherData(@Valid @RequestBody TeachersIngestReq request) throws Exception {
 		String ingestLogId = UUID.randomUUID().toString();
 
 		logger.info("Received teacher ingest request: fileUri={}, storageProvider={}, ingestLogId={}",

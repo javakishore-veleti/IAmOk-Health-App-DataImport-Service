@@ -1,4 +1,4 @@
-package com.jk.iamok.health_app.teacher.batch.service;
+package com.jk.iamok.health_app.teacher.batch.service.writer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jk.iamok.health_app.core.dto.TeacherEnrichedInfo;

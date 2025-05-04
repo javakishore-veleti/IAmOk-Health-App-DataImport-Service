@@ -1,8 +1,10 @@
 package com.jk.iamok.health_app.teacher.batch.service;
 
 import com.jk.iamok.health_app.core.dto.TeachersIngestReq;
+import com.jk.iamok.health_app.core.dto.TeachersIngestReqCtx;
 import com.jk.iamok.health_app.core.service.TeacherIngestService;
 
+import com.jk.iamok.health_app.util.AppUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.Job;
@@ -27,10 +29,17 @@ public class TeacherIngestServiceImpl implements TeacherIngestService {
 	}
 
 	@Override
-	public void ingestTeachers(TeachersIngestReq request, String ingestLogId) {
+	public void ingestTeachers(TeachersIngestReq request, String ingestLogId) throws Exception {
+
+		TeachersIngestReqCtx context = new TeachersIngestReqCtx();
+		context.setTeachersIngestReq(request);
+
+		String contextJson = AppUtil.getObjectMapper().writeValueAsString(context);
+
 		JobParameters jobParameters = new JobParametersBuilder().addString("fileUri", request.getFileUri())
 				.addString("storageProviderType", request.getStorageProviderType())
 				.addString("ingestLogId", ingestLogId).addLong("timestamp", System.currentTimeMillis())
+				.addString("teachersIngestReqCtx", contextJson)
 				.toJobParameters();
 
 		try {

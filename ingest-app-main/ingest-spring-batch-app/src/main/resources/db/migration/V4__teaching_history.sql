@@ -1,4 +1,21 @@
+-- noinspection SqlDialectInspectionForFile
+
 -- Create teaching_history table in the active schema (e.g., iam_ok_health)
+
+CREATE TABLE IF NOT EXISTS teacher_info (
+    id BIGSERIAL PRIMARY KEY,
+    teacher_id VARCHAR(100) NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    joining_date DATE NOT NULL,
+    employment_status VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT now(),
+    updated_at TIMESTAMP NOT NULL DEFAULT now(),
+    created_by VARCHAR(100),
+    updated_by VARCHAR(100),
+    version BIGINT NOT NULL DEFAULT 0
+);
 
 CREATE TABLE teaching_history (
     id BIGINT NOT NULL PRIMARY KEY,
